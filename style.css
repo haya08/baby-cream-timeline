@@ -1,0 +1,482 @@
+body {
+  margin: 0;
+  font-family: Cairo;
+  background: #050b0d;
+  color: white;
+}
+
+/* logo */
+.logo img {
+  width: 110px;
+  height: auto;
+}
+
+/*  */
+
+/* 🔥 animated background */
+.bg-animation {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, #00ffa622, transparent);
+  animation: moveBg 10s infinite alternate;
+  z-index: 0;
+}
+
+@keyframes moveBg {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-50px); }
+}
+
+.dashboard {
+  display: flex;
+  position: relative;
+  z-index: 2;
+}
+
+/* project title */
+.project-title {
+  /* color: #00ffa6; */
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+/* sidebar */
+.sidebar {
+  width: 220px;
+  background: rgba(0,0,0,0.6);
+  backdrop-filter: blur(15px);
+  padding: 20px;
+}
+
+.sidebar h2 {
+  /* color: #00ffa6; */
+}
+
+.sidebar li {
+  padding: 12px;
+  margin: 10px 0;
+  border-radius: 10px;
+  color: #aaa;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.sidebar li i {
+  margin-right: 10px;
+}
+
+.sidebar li:hover,
+.sidebar .active {
+  background: rgba(0,255,166,0.1);
+  color: #00ffa6;
+}
+
+/* main */
+.main {
+  flex: 1;
+  padding: 20px;
+}
+
+/* cards */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.card {
+  padding: 20px;
+  border-radius: 15px;
+  background: linear-gradient(145deg, #0b1a1f, #050b0d);
+  box-shadow: 0 0 20px #00ffa622;
+  transition: 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 0 30px #00ffa655;
+}
+
+.card span {
+  display: block;
+  margin-top: 10px;
+  font-size: 22px;
+  color: #00ffa6;
+}
+
+/* charts */
+.charts {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-top: 30px;
+}
+
+.chart-box {
+  background: rgba(255,255,255,0.05);
+  padding: 20px;
+  border-radius: 15px;
+  backdrop-filter: blur(10px);
+  max-height: 300px;
+  display: flex;
+  justify-content: center;
+}
+
+/*? timeline section */
+.timeline-section {
+  
+  /* text-align: center;     */
+  margin-bottom: 50px;
+}
+
+.timeline-container{
+    margin-top: 20px;
+    background: rgba(255,255,255,0.05);
+    padding: 30px;
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+}
+
+.timeline-section h2 {
+  margin-bottom: 20px;
+}
+
+/* timeline */
+.timeline {
+  position: relative;
+  width: 90%;
+  margin: auto;
+  height: 150px;
+}
+
+/* base line */
+.line {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  height: 10px;
+  background: #1a2a2f;
+  border-radius: 20px;
+}
+
+/* filled line */
+.line-fill {
+  position: absolute;
+  top: 50%;
+  height: 10px;
+  width: 0;
+  background: linear-gradient(to right, #00ffa6, #00cc88);
+  border-radius: 20px;
+  box-shadow: 0 0 15px #00ffa6;
+}
+
+/* steps */
+.step {
+  position: absolute;
+  top: 50%;
+  transform: translateX(-50%); /* ✅ Remove the -50% on Y axis */
+  text-align: center;
+  font-size: 13px;
+}
+
+/* dots */
+.step::before {
+  content: "";
+  display: block;
+  width: 22px;
+  height: 22px;
+  margin: auto;
+  margin-bottom: 10px;
+  border-radius: 50%;
+  background: #555;
+  transition: 0.3s;
+  transform: translateY(-30%); /* ✅ Center the dot on the line */
+}
+
+.step p,
+.step span {
+  margin-top: 20px; /* ✅ Push text below the line */
+  display: block;
+}
+
+/* done */
+.step.done::before {
+  background: #00ffa6;
+  box-shadow: 0 0 15px #00ffa6, 0 0 30px #00ffa655;
+}
+
+/* pending */
+.step.pending::before {
+  background: #888;
+}
+
+/* text */
+.step span {
+  /* color: #aaa; */
+  font-size: 12px;
+}
+
+.step.done {
+  color: #00ffa6;
+}
+
+/* current step */
+.step.current::before {
+  background: #00ffa6;
+  box-shadow: 
+    0 0 20px #00ffa6,
+    0 0 40px #00ffa6,
+    0 0 60px #00ffa6;
+  transform: scale(1.4);
+}
+
+/* pulse animation 🔥 */
+.step.current::before {
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0% { box-shadow: 0 0 10px #00ffa6; }
+  50% { box-shadow: 0 0 30px #00ffa6; }
+  100% { box-shadow: 0 0 10px #00ffa6; }
+}
+
+/* النص */
+.step.current {
+  color: #00ffa6;
+  font-weight: bold;
+  transform: translateX(-50%) translateY(-7%);
+}
+
+.step.current::after {
+  content: "أنت هنا";
+  position: absolute;
+  top: -55px; /* ✅ Adjusted to sit above the dot */
+  left: 50%;
+  transform: translateX(-50%);
+  background: #00ffa6;
+  color: black;
+  padding: 4px 10px;
+  border-radius: 10px;
+  font-size: 11px;
+}
+
+/* footer */
+.footer {
+  text-align: center;
+  padding: 20px;
+  /* background: rgba(0,0,0,0.6); */
+  backdrop-filter: blur(15px);
+  /* border-radius: 10px; */
+}
+
+/* social media icons */
+.social-media-icons {
+  margin-bottom: 10px;
+  margin-top: 50px;
+}
+
+.social-media-icons a{
+  text-decoration: none;
+  color: white;
+}
+
+.social-media-icons i {
+  font-size: 24px;
+  margin: 0 10px;
+  transition: 0.3s;
+  /* cursor: pointer; */
+}
+
+
+
+
+/* 📱 Mobile Responsive */
+@media (max-width: 768px) {
+
+  .project-title {
+    font-size: 18px;
+    margin-bottom: 15px;
+  }
+
+  .dashboard {
+    flex-direction: column;
+  }
+
+  /* sidebar */
+  .sidebar {
+    width: 100%;
+    padding: 15px;
+    box-sizing: border-box;
+  }
+
+  .sidebar ul {
+    padding: 0;
+  }
+
+  .sidebar li {
+    font-size: 14px;
+  }
+
+  .logo {
+    text-align: center;
+    margin-bottom: 15px;
+  }
+
+  .logo img {
+    width: 80px;
+  }
+
+  /* main */
+  .main {
+    padding: 15px;
+  }
+
+  /* cards */
+  .cards {
+    grid-template-columns: 1fr;
+  }
+
+  .card {
+    padding: 18px;
+  }
+
+  .card h3 {
+    font-size: 16px;
+  }
+
+  .card span {
+    font-size: 20px;
+  }
+
+  /* charts */
+  .charts {
+    grid-template-columns: 1fr;
+  }
+
+  .chart-box {
+    width: 90%;
+    overflow-x: none;
+  }
+
+  canvas {
+    max-width: 100% !important;
+    height: auto !important;
+  }
+
+  /* timeline
+  .timeline {
+    width: 100%;
+    overflow-x: auto;
+    height: 180px;
+  }
+
+  .step {
+    font-size: 11px;
+    width: 70px;
+  }
+
+  .step span {
+    font-size: 10px;
+  }
+
+  .step.current::after {
+    font-size: 9px;
+    padding: 3px 8px;
+    top: -45px;
+  } */
+
+  /* 📱 Mobile Timeline Fix */
+@media (max-width: 768px) {
+
+  .timeline-container {
+    padding: 20px 15px;
+    overflow: hidden;
+  }
+
+  .timeline {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 35px;
+    position: relative;
+    padding-right: 25px;
+  }
+
+  /* vertical line */
+  .line {
+    width: 4px;
+    height: 100%;
+    left: 10px;
+    top: 0;
+    border-radius: 20px;
+  }
+
+  .line-fill {
+    width: 4px;
+    left: 10px;
+    top: 0;
+    border-radius: 20px;
+  }
+
+  .step {
+    position: relative;
+    top: unset;
+    left: unset !important;
+    transform: none !important;
+    text-align: right;
+    padding-right: 20px;
+    font-size: 13px;
+  }
+
+  .step::before {
+    position: absolute;
+    right: -6px;
+    top: 0;
+    margin: 0;
+    width: 18px;
+    height: 18px;
+    transform: none;
+  }
+
+  .step p,
+  .step span {
+    margin: 0;
+  }
+
+  .step p {
+    font-size: 13px;
+    margin-bottom: 5px;
+  }
+
+  .step span {
+    font-size: 11px;
+    color: #aaa;
+  }
+
+  .step.current::after {
+    top: -30px;
+    right: -15px;
+    left: unset;
+    transform: none;
+    font-size: 10px;
+  }
+}
+
+  /* footer */
+  .footer {
+    padding: 15px;
+  }
+
+  .social-media-icons i {
+    font-size: 20px;
+    margin: 0 6px;
+  }
+
+  .footer p {
+    font-size: 12px;
+  }
+}

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <title>PixelBox</title>
+
+  <!-- Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="bg-animation"></div>
+
+<div class="dashboard">
+
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <!-- <h2>PIXELBOX</h2> -->
+    <div class="logo">
+      <img src="images/logo.png" alt="Logo">
+    </div>
+    <ul>
+      <li class="active"><i class="ri-home-5-line"></i> Dashboard</li>
+      <!-- <li><i class="ri-folder-line"></i> Projects</li>
+      <li><i class="ri-message-2-line"></i> Messages</li>
+      <li><i class="ri-settings-3-line"></i> Settings</li> -->
+    </ul>
+  </div>
+
+  <!-- Main -->
+  <div class="main">
+
+    <div class="header">
+      <h1 id="title"></h1>
+    </div>
+
+    <!-- Cards -->
+    <div class="cards" id="cards"></div>
+
+    <!-- Charts -->
+    <div class="charts">
+      <div class="chart-box">
+        <canvas id="progressChart"></canvas>
+      </div>
+
+      <div class="chart-box">
+        <canvas id="statusChart"></canvas>
+      </div>
+    </div>
+
+    <div class="timeline-container">
+        <div class="timeline-section">
+            <h2>Project Timeline</h2>
+    
+            <div class="timeline">
+                <div class="line"></div>
+                <div class="line-fill" id="lineFill"></div>
+            </div>
+        </div>
+    </div>
+
+    
+    <section class="footer">
+      <!-- icons -->
+      <div class="social-media-icons">
+          <a target="_blank" href="https://www.facebook.com/share/1DkoABygJa/">
+            <i class="fab fa-facebook-square"></i>
+          </a>
+          <a target="_blank" href="https://www.linkedin.com/company/pixelbox_design/">
+            <i class="fab fa-linkedin"></i>
+          </a>
+          <a target="_blank" href="https://www.instagram.com/pixelbox25?igsh=NW1zdWFmMnNveTJx">
+            <i class="fab fa-instagram"></i>
+          </a>
+      </div>
+      <p>&copy; 2026 PIXELBOX. All rights reserved.</p>
+    </section>
+</div>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
